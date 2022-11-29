@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% block conteudo %}
+         <a class="btn btn-primary" href="{{url_for('novo_fornecedor')}}">+ Adicionar Fornecedor</a>
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>CNPJ</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for fornecedor in fornecedores %}
+                <tr>
+                    <td>{{fornecedor._id}}</td>
+                    <td>{{fornecedor._nome}}</td>
+                    <td>{{fornecedor._endereco}}</td>
+                    <td>{{fornecedor._telefone}}</td>
+                    <td>{{fornecedor._CNPJ}}</td>
+                    <td><a class="btn btn-secondary" href="{{url_for('editar_fornecedores', id=fornecedor._id)}}">Editar</a></td>
+                    <td><a class="btn btn-danger" href="{{url_for('deletar_fornecedor', id=fornecedor._id)}}"><i class="material-icons">delete</i></a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+{%endblock %}

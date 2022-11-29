@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+      <form action="/atualizar_fornecedores" method="post">
+        <fieldset>
+          <input type="hidden" name="id" value="{{fornecedor._id}}">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" value="{{fornecedor._nome}}">
+          </div>
+          <div class="form-group">
+            <label for="endereco">Endereço Completo</label>
+            <input type="text" id="endereco" name="endereco" class="form-control" value="{{fornecedor._endereco}}">
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" name="telefone" class="form-control" value="{{fornecedor._telefone}}">
+          </div>
+          <div class="form-group">
+            <label for="CNPJ">CNPJ</label>
+            <input type="text" id="CNPJ" name="CNPJ" class="form-control" value="{{fornecedor._CNPJ}}">
+          </div>
+          <p></p>
+          <button type="submit" class="btn btn-success btn-salvar_forn">✓ Editar</button>
+          <a class="btn btn-danger" href="{{url_for('lista_fornecedores')}}"> <- Voltar</a>
+        </fieldset>
+      </form>
+{%endblock %}

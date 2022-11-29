@@ -1,0 +1,46 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<form action="/criar" method="post" xmlns="http://www.w3.org/1999/html">
+        <fieldset>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control">
+          </div>
+
+          <p></p>
+
+          <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <select class="form_select" id="categoria" name="categoria">
+            {% for categoria in categorias %}
+                <option value="{{categoria._id}}">{{ categoria._nome }}</option>
+            {% endfor %}
+            </select>
+          </div>
+
+          <p></p>
+
+          <div class="form-group">
+            <label for="fornecedor">Fornecedor</label>
+            <select class="form_select" id="fornecedor" name="fornecedor">
+            {% for fornecedor in fornecedores %}
+                <option value="{{fornecedor._id}}">{{ fornecedor._nome }}</option>
+            {% endfor %}
+            </select>
+          </div>
+
+          <p></p>
+
+          <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input type="text" id="quantidade" name="quantidade" class="form-control">
+          </div>
+
+          <p></p>
+
+          <button type="submit" class="btn btn-success btn-salvar">+ Adicionar</button>
+          <a class="btn btn-danger" href="{{url_for('lista_produtos')}}"> <- Voltar</a>
+        </fieldset>
+      </form>
+{%endblock %}

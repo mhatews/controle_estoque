@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+      <form action="/atualizar_usuario" method="post">
+        <fieldset>
+          <input type="hidden" name="id" value="{{usuario._id}}">
+          <div class="form-group">
+            <label for="id">Nome de Usuario</label>
+            <input type="text" id="id" name="id" class="form-control" value="{{usuario._id}}">
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="text" id="senha" name="senha" class="form-control" value="{{usuario._senha}}">
+          </div>
+          <p></p>
+          <button type="submit" class="btn btn-success btn-salvar_u">✓ Editar</button>
+          <a class="btn btn-danger" href="{{url_for('lista_usuarios')}}"> <- Voltar</a>
+        </fieldset>
+      </form>
+{%endblock %}

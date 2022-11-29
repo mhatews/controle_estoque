@@ -1,0 +1,20 @@
+{% extends "temp.html" %}
+{% block conteudo %}
+
+
+  <body>
+    <div>
+        <h1>Faça seu login</h1>
+        <form method="POST" action="/autenticar">
+            <input type="hidden"  name="proxima"  value="{{proxima}}">
+            <p><label>Nome de usuário:</label> <input class="form-control" type="text" name="usuario" required></p>
+            <p><label>Senha:</label> <input class="form-control" type="password" name="senha" required></p>
+            <p><button class="btn btn-primary" type="submit">Logar</button>
+            <a class="btn btn-secondary"  type="button" href="{{url_for('index')}}"> Voltar</a></p>
+            <a class="btn btn-link" href="{{url_for('novo_usuario')}}"> Ainda não tem conta ?Cadastre - se</a>
+        </form>
+    </div>
+</body>
+
+{%endblock %}
+

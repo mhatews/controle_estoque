@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+      <form action="/atualizar_categorias" method="post">
+        <fieldset>
+          <input type="hidden" name="id" value="{{categoria._id}}">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" value="{{categoria._nome}}">
+          </div>
+
+          <p></p>
+          <button type="submit" class="btn btn-success btn-salvar_cat">✓ Editar</button>
+          <a class="btn btn-danger" href="{{url_for('lista_categorias')}}"> <- Voltar</a>
+        </fieldset>
+      </form>
+{%endblock %}

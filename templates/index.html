@@ -1,0 +1,25 @@
+{% extends "temp.html" %}
+{% block conteudo %}
+
+
+
+        <div id="rectangle" style="width:1649px; height:277px; background-color:gray">
+        <div>
+            <center>
+            <p style="margin-top: 50px; margin-left: 0px; margin-right: 0px; " type="text"><font size="08px" COLOR="WHITE">Seja Bem Vindo ao Estoque +</font> </p>
+            <p type="text"><font size="05px" COLOR="WHITE">Este é um sistema de controle de Estoque</font> </p>
+            </center>
+        </div>
+        </div>
+        <div>
+                <center>
+                    <a style="margin-top: 300px; margin-left: 0px; margin-right: 0px; " class="btn btn-primary btn-lg btn-block" href="{{url_for('login')}}">Login</a>
+                    </center>
+                <center>
+                    <a style="margin-top: 50px; margin-left: 0px; margin-right: 0px; " class="btn btn-outline-primary btn-lg btn-block" href="{{url_for('novo_usuario')}}">Cadastre-se</a>
+                    </center>
+        </div>
+
+
+
+{%endblock %}

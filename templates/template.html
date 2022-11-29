@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estoque+</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='app.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <a style="margin-top: 0px; margin-left: 10px; margin-right: 0px; " class="navbar-brand" href="/lista_produtos"><font size="06px" COLOR="WHITE">Estoque</font></a>
+            <a style="margin-top: 0px; margin-left: 10px; margin-right: 0px; " class="navbar-brand" href="/lista_produtos"><font size="10px" COLOR="WHITE">+</font></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <center>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a style="margin-top: 0px; margin-left: 10px; margin-right: 0px; "class="nav-link active" href="{{ url_for('lista_produtos') }}">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('lista_categorias') }}">Categorias</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="{{ url_for('lista_fornecedores') }}">Fornecedores</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="{{ url_for('lista_usuarios') }}">Usuários</a>
+                    </li>
+                    <form action="/lista_pesquisa" method="POST">
+                        <input style="margin-top: 0px; margin-left: 10px; margin-right: 0px;"type="text" name="nome" id="nome" placeholder="Faça sua busca" required>
+                        <button type="submit" class="btn btn-primary"><i class="material-icons">search</i></button>
+                    </form>
+
+                    <li class="nav-item">
+                        <a style="margin-top: 0px; margin-left: 10px; margin-right: 0px;" class="btn btn-danger" href="{{ url_for('logout') }}">Sair</a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+                </center>
+        </nav>
+
+      <div class="page-header">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+                <ul id="messages" class="list-unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+          {% endif %}
+        {% endwith %}
+          <h1>{{ titulo }}</h1>
+      </div>
+
+        {% block conteudo %} {%endblock %}
+    </div>
+</body>
+</html>
